@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Regenerate data/incidents.json whenever data/incidents.csv is staged,
+# and add the regenerated JSON to the commit so the two stay in sync.
+set -euo pipefail
+
+repo_root="$(git rev-parse --show-toplevel)"
+csv_path="data/incidents.csv"
+json_path="data/incidents.json"
+
+if git diff --cached --name-only --diff-filter=ACMR | grep -qx "$csv_path"; then
+  if ! command -v python3 >/dev/null 2>&1; then
+    echo "pre-commit: python3 not found; cannot regenerate $json_path" >&2
+    exit 1
+  fi
+  python3 "$repo_root/scripts/csv_to_json.py" \
+    "$repo_root/$csv_path" \
+    "$repo_root/$json_path"
+  git add "$repo_root/$json_path"
+fi
