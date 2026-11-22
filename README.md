@@ -17,6 +17,7 @@ It also keeps closely related incidents from other kinds of AI agents, because t
 | `general_assistant` | General AI assistants and their connectors (ChatGPT, claude.ai, Claude Desktop, Manus, OpenClaw) |
 | `saas_ai_feature` | AI features built into business or consumer software (Microsoft 365 Copilot, Salesforce Agentforce, Meta's support assistant) |
 | `agent_framework` | Libraries and servers for building agents (PraisonAI) |
+| `autonomous_agent` | AI models acting on their own in test, research, or pentest setups that reached real systems (OpenAI, Anthropic, Google, and Meta model evaluations) |
 
 For coding agents only, filter on `agent_category == "coding_agent"`.
 

@@ -40,7 +40,7 @@ Anonymize affected people unless they published the incident themselves.
 | `description` | yes | A few factual sentences. |
 | `model` | yes | Model involved, or "unspecified". |
 | `harness` | yes | Product and mode, for example "Cursor (Agent Mode)". |
-| `agent_category` | yes | `coding_agent`, `agentic_browser`, `general_assistant`, `saas_ai_feature`, `agent_framework`. See [Scope](README.md#scope). |
+| `agent_category` | yes | `coding_agent`, `agentic_browser`, `general_assistant`, `saas_ai_feature`, `agent_framework`, `autonomous_agent`. See [Scope](README.md#scope). |
 | `harm_type` | yes | Free-text detail of the harm. |
 | `harm_category` | yes | The main harm: `code_execution`, `data_exfiltration`, `credential_theft`, `data_loss`, `unauthorized_change` (agent changed files or systems it was told not to), `supply_chain_compromise`, `unauthorized_access`, `agent_hijack` (agent made to act for an attacker), `service_disruption` (outages, quality regressions). |
 | `severity` | yes | `critical`, `high`, `medium`, `low`. |
