@@ -70,6 +70,7 @@ ALLOWED = {
         "general_assistant",
         "saas_ai_feature",
         "agent_framework",
+        "autonomous_agent",
     },
     "harm_category": {
         "code_execution",
