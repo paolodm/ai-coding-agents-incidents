@@ -24,14 +24,19 @@ def _coerce(key: str, value: str):
     return value
 
 
-def convert(csv_path: Path, json_path: Path) -> int:
+def load_rows(csv_path: Path) -> list[dict]:
     with csv_path.open(newline="", encoding="utf-8") as fh:
         reader = csv.DictReader(fh)
-        rows = [{k: _coerce(k, v) for k, v in row.items()} for row in reader]
-    json_path.write_text(
-        json.dumps(rows, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8",
-    )
+        return [{k: _coerce(k, v) for k, v in row.items()} for row in reader]
+
+
+def render_json(rows: list[dict]) -> str:
+    return json.dumps(rows, indent=2, ensure_ascii=False) + "\n"
+
+
+def convert(csv_path: Path, json_path: Path) -> int:
+    rows = load_rows(csv_path)
+    json_path.write_text(render_json(rows), encoding="utf-8")
     return len(rows)
 
 
